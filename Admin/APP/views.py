@@ -6,14 +6,11 @@ from django.http import HttpResponse
 def inicio(request):
     return render(request, "APP/inicio.html")
 
-def cursos(request):
-    return HttpResponse("Vista cursos")
+def formulario(request):
+    return render(request,"APP/formulario.html")
 
-def profesores(request):
-    return HttpResponse("Vista profesores")
+def about(request):
+    return render(request,"APP/about.html")
 
-def estudiantes(request):
-    return HttpResponse("Vista estudiantes")
-
-def entregables(request):
-    return HttpResponse("Vista entregables")
+def about(request):
+    return render(request,"APP/BKP.html")
