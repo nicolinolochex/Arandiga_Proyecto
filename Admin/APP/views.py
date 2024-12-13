@@ -24,7 +24,4 @@ def formulario(request):
     return render(request, "APP/formulario.html")
 
 def about(request):
-    return render(request,"APP/about.html")
-
-def about(request):
-    return render(request,"APP/BKP.html")
+    return render(request,"APP/aboutv2.html")
