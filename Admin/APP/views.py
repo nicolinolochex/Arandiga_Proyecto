@@ -25,3 +25,6 @@ def formulario(request):
 
 def about(request):
     return render(request,"APP/aboutv2.html")
+
+def base_clientes(request):
+    return render(request,"APP/base_clientes.html")
