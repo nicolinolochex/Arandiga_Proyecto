@@ -10,6 +10,8 @@ class Contact(models.Model):
     def __str__(self):
         return f"{self.name} ({self.email})"
 
+from django.db import models
+
 class VehiculosClientes(models.Model):
     UNIDAD_CHOICES = [
         ('Car', 'Car'),
@@ -27,6 +29,7 @@ class VehiculosClientes(models.Model):
     # Definir una función __str__ para una representación legible
     def __str__(self):
         return f"{self.unidad} - {self.modelo} ({self.kilometraje} km)"
+
     
     # Crear el modelo TrabajaConNosotros
 class TrabajaConNosotros(models.Model):

@@ -1,0 +1,47 @@
+{% extends 'APP/BASE.html' %}
+{% load static %}
+
+{% block title %} Buscar Vehículo {% endblock title %}
+
+{% block main %}
+  <section class="page-section portfolio" id="portfolio" style="margin-top: 15px;">
+    <div class="container">
+      <h2>Buscar Vehículo</h2>
+
+      <!-- Formulario para buscar vehículo -->
+      <form action="" method="POST">
+          {% csrf_token %}
+          <table>
+              {{ mi_formulario.as_table }}
+          </table>
+          <input type="submit" value="Buscar">
+      </form>
+
+      {% if vehiculos %}
+        <h3>Resultados de la búsqueda:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Unidad</th>
+              <th>Modelo</th>
+              <th>Kilometraje</th>
+              <th>Precio (USD)</th>
+              <th>Foto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for vehiculo in vehiculos %}
+              <tr>
+                <td>{{ vehiculo.unidad }}</td>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.kilometraje }}</td>
+                <td>{{ vehiculo.precio_usd }}</td>
+                <td><img src="{{ vehiculo.foto.url }}" alt="Foto del vehículo" width="100"></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+  </section>
+{% endblock main %}

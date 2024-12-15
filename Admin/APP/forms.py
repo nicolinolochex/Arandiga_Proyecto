@@ -57,3 +57,7 @@ class TrabajaConNosotrosForm(forms.ModelForm):
             'telefono': {'required': 'Please enter your phone number.'},
             'curriculum': {'required': 'Please upload your curriculum.'},
         }
+
+class BuscaVehiculoForm(forms.Form):
+    unidad = forms.CharField(max_length=50, required=False, label="Modelo (Ej. Ferrari Enzo)")
+    modelo = forms.CharField(max_length=100, required=False, label="Año")
