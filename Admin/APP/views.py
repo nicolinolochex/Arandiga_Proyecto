@@ -1,27 +1,27 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
-
-from .models import Contact
-
+from django.shortcuts import render, redirect
+from .forms import ContactForm
 def inicio(request):
     return render(request, "APP/inicio.html")
 
+
+
 def formulario(request):
     if request.method == 'POST':
-        # Obtenemos los datos enviados en el formulario
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        message = request.POST.get('message')
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Guardar el formulario en la base de datos
+            form.save()
+            # Redirigir a una página de éxito o mostrar un mensaje
+            return redirect('success')  # Redirige a una vista de éxito, por ejemplo
+    else:
+        form = ContactForm()
 
-        # Creamos una instancia del modelo y guardamos los datos
-        Contact.objects.create(name=name, email=email, phone=phone, message=message)
+    return render(request, 'app/formulario.html', {'form': form})
 
-        # Redirigimos a una página de éxito o mostramos un mensaje
-        return render(request, "APP/success.html")  # Asegúrate de crear success.html
-    return render(request, "APP/formulario.html")
+def success(request):
+    return render(request, 'APP/success.html')
 
 def about(request):
     return render(request,"APP/aboutv2.html")
@@ -34,3 +34,5 @@ def trabaja(request):
 
 def publica(request):
     return render(request,"APP/publica.html")
+
+
