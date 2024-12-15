@@ -1,27 +1,39 @@
 # Arandiga_Proyecto
 
-15/12 17:45hs ( Requerimientos cumplidos)
+**15/12 17:45hs (Requerimientos cumplidos)**
 
-Es una pagina de super autos "http://127.0.0.1:8000/APP/inicio/" esa seria el home.. 
+El proyecto consta de una página de superautos.
 
-El Nav consta de:
--Portfolio: Es la pestaña de Inicio - Hay una lista de los autos en cartera. La Ferrari Enzo es la unica desarrollada. Podes darle click y te muestra una descripcion de la unidad ![alt text](image.png)
+## Estructura del Proyecto
 
--Publica tu Hyper Car :  Hay un desplegable. Formulario 1/3 - 
-![alt text](image-1.png)
-Aqui podes publicar tu Auto, adjuntando detalles y podes subir una foto tambien. 
+### Navegación Principal
 
-En el segundo desplegable tenes "Autos ya en Agencia", aqui tenes un search donde podes buscar por modelo y por año las unidades en cartera cargadas por clientes
+1. **[Portfolio/Home](http://127.0.0.1:8000/APP/inicio/):**  
+   Es la pestaña de inicio, donde se muestra una lista de los autos en cartera. Actualmente, la Ferrari Enzo es la única desarrollada. Puedes hacer clic en el auto para ver una descripción detallada de la unidad.
+   
+   ![Ferrari Enzo](image.png)
 
-![alt text](image-2.png)
+2. **[Publica tu Hyper Car](http://127.0.0.1:8000/APP/publicar_rodado/):**  
+   Aquí puedes publicar tu auto adjuntando los detalles y una foto.
+   
+   ![Formulario de publicación](image-1.png)
 
-Aca tambien se realizo el desarrollo para renderizar las imagenes de lo cargado por clientes.
+3. **[Autos ya en Agencia](http://127.0.0.1:8000/APP/buscar-vehiculo/):**  
+   En esta sección, puedes buscar autos ya cargados en la agencia por clientes. El buscador permite filtrar por modelo y año.
+   
+   Además, se desarrolló una funcionalidad para renderizar las imágenes de los autos cargados por los clientes.
+   
+   ![Búsqueda de vehículos](image-2.png)
 
--[ABOUT](http://127.0.0.1:8000/APP/acercade/): Aca es una descripcion de la empresa
+4. **[ABOUT](http://127.0.0.1:8000/APP/acercade/):**  
+   Esta sección contiene una descripción de la empresa.
 
--[CONTACT](http://127.0.0.1:8000/APP/formulario/): Formulario 2/3 Aqui hay un formulario de contacto.
+5. **[CONTACT](http://127.0.0.1:8000/APP/formulario/):**  
+   Formulario de contacto (Formulario 2/3).
 
--[TRABAJA CON NOSOTROS](http://127.0.0.1:8000/APP/publicar_cv/): Formulario 3/3 Formulario donde se puede cargar CV y datos de interesados en trabajar en la empresa
+6. **[TRABAJA CON NOSOTROS](http://127.0.0.1:8000/APP/publicar_cv/):**  
+   Formulario donde los interesados pueden cargar su CV y datos para trabajar en la empresa (Formulario 3/3).
 
+### Footer
 
-
+En el footer se agregó un enlace a mi perfil de LinkedIn.
