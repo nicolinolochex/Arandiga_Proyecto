@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactForm
+from .forms import VehiculosClientesForm
+from .forms import TrabajaConNosotrosForm
+
+
 def inicio(request):
     return render(request, "APP/inicio.html")
 
@@ -29,10 +33,30 @@ def about(request):
 def base_clientes(request):
     return render(request,"APP/base_clientes.html")
 
-def trabaja(request):
-    return render(request,"APP/trabaja.html")
+def publicar_rodado(request):
+    if request.method == 'POST':
+        form = VehiculosClientesForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Guardar el formulario en la base de datos
+            form.save()
+            # Redirigir a una página de éxito
+            return redirect('success')  # Redirige a una vista de éxito, por ejemplo
+    else:
+        form = VehiculosClientesForm()
 
-def publica(request):
-    return render(request,"APP/publica.html")
+    return render(request, 'APP/publicar_rodado.html', {'form': form})
+
+def publicar_cv(request):
+    if request.method == 'POST':
+        form = TrabajaConNosotrosForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Guardar el formulario en la base de datos
+            form.save()
+            # Redirigir a una página de éxito
+            return redirect('success')  # Redirige a una vista de éxito, por ejemplo
+    else:
+        form = TrabajaConNosotrosForm()
+
+    return render(request, 'APP/publicar_cv.html', {'form': form})
 
 

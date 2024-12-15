@@ -21,7 +21,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Hyper solutions</a>
+                <span class="navbar-brand">Hyper solutions</span>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -31,6 +31,18 @@
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'inicio' %}">Portfolio</a>
                         </li>
+                        
+                        <!-- Menú desplegable Publica tu Hyper Car -->
+                        <li class="nav-item dropdown mx-0 mx-lg-1">
+                            <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Publica tu Hyper Car
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'publicar_rodado' %}">Publica tu Auto</a></li>
+                                <li><a class="dropdown-item" href="#">Autos ya en Agencias</a></li> <!-- Añadir enlace adecuado para esta opción -->
+                            </ul>
+                        </li>
+
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'aboutv2' %}">About</a>
                         </li>
@@ -38,13 +50,7 @@
                             <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'formulario' %}">Contact</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'base_clientes' %}">Base de Contactos</a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'publica' %}">Publica tu Hyper Car</a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'trabaja' %}">Trabaja con Nosotros</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'publicar_cv' %}">Trabaja con Nosotros</a>
                         </li>
                     </ul>
                 </div>
@@ -62,26 +68,23 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Location</h4>
                         <p class="lead mb-0">
-                            2215 John Daniel Drive
+                            Avenida Siempre Viva 742
                             <br />
-                            Clark, MO 65243
+                            Springfield, USA
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/catriel-nicolas-arandiga" target="_blank">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </a>
                     </div>
                     <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">About Us</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
+                            This platform helps connect users with vehicles and opportunities. Powered by passion and technology.
                         </p>
                     </div>
                 </div>
@@ -89,7 +92,7 @@
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+            <div class="container"><small>Copyright &copy; Catriel Arandiga 2024</small></div>
         </div>
       </body>
 </html>

@@ -1,0 +1,30 @@
+{% extends 'APP/BASE.html' %}
+{% load static %}
+
+{% block main %}
+<section class="page-section portfolio" id="contact" style="margin-top: 50px;">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-4">Publicar Hyper Car</h2>
+        <div class="divider-custom mb-4">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <!-- Aquí puedes renderizar los campos del formulario -->
+                    {{ form.as_p }}  <!-- Renderiza el formulario como párrafos -->
+                    
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-xl" type="submit">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
