@@ -28,3 +28,9 @@ def about(request):
 
 def base_clientes(request):
     return render(request,"APP/base_clientes.html")
+
+def trabaja(request):
+    return render(request,"APP/trabaja.html")
+
+def publica(request):
+    return render(request,"APP/publica.html")
