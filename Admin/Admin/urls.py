@@ -22,7 +22,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('APP/', include('APP.urls'))  # Aquí se incluye el archivo de URLs de la app 'APP'
+    path('', include('APP.urls'))  # Aquí se incluye el archivo de URLs de la app 'APP'
 ]
 # Añadir esta línea para servir los archivos de medios en el desarrollo
 if settings.DEBUG:

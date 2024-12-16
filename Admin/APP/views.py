@@ -12,7 +12,6 @@ def inicio(request):
     return render(request, "APP/inicio.html")
 
 
-
 def formulario(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -28,6 +27,9 @@ def formulario(request):
 
 def success(request):
     return render(request, 'APP/success.html')
+
+def tests(request):
+    return render(request, 'APP/tests.html')
 
 def about(request):
     return render(request,"APP/aboutv2.html")
