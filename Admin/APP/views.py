@@ -1,13 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .forms import ContactForm
-from .forms import VehiculosClientesForm
-from .forms import TrabajaConNosotrosForm
-from .forms import BuscaVehiculoForm
+from .forms import ContactForm, VehiculosClientesForm, TrabajaConNosotrosForm, BuscaVehiculoForm
 from .models import VehiculosClientes
 from django.views.generic import ListView, UpdateView, DeleteView
-from .models import VehiculosClientes
 from django.urls import reverse_lazy
 
 def inicio(request):
