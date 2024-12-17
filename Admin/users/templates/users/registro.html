@@ -1,0 +1,42 @@
+{% extends 'APP/BASE.html' %}
+{% load static %}
+
+{% block title %}Registro{% endblock title %}
+
+{% block main %}
+<div class="container" style="margin-top: 10rem; padding-top: 5rem; margin-bottom: 5rem; padding-bottom: 5rem;">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <!-- Título del formulario -->
+            <h2 class="text-center mb-4">Registro</h2>
+            
+            <!-- Mensaje de la vista -->
+            {% if msg_register %}
+                <div class="alert alert-info text-center">
+                    {{ msg_register }}
+                </div>
+            {% endif %}
+
+            <!-- Errores del formulario -->
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                    {% for field, errors in form.errors.items %}
+                        <li><strong>{{ field }}:</strong> {{ errors|join:", " }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <!-- Formulario de registro -->
+            <form action="" method="POST" class="border p-4 rounded shadow-sm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-grid mt-3">
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main %}

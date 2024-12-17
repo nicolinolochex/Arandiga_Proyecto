@@ -1,0 +1,31 @@
+{% extends 'APP/BASE.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block main %}
+<div class="container mt-5 mb-5 pt-5 pb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <!-- Título del formulario -->
+            <h2 class="text-center mb-4">Iniciar Sesión</h2>
+            
+            <!-- Mensaje de la vista -->
+            {% if msg_login %}
+                <div class="alert alert-info text-center">
+                    {{ msg_login }}
+                </div>
+            {% endif %}
+
+            <!-- Formulario de inicio de sesión -->
+            <form action="" method="POST" class="border p-4 rounded shadow-sm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-grid mt-3">
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main %}
