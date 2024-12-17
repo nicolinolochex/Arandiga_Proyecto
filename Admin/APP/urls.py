@@ -2,8 +2,7 @@ from django.urls import path
 from APP import views
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
-
+from .views import VehiculosClientesListView, VehiculosClientesUpdateView, VehiculosClientesDeleteView
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
@@ -15,6 +14,10 @@ urlpatterns = [
     path('success/', views.success, name='success'),  # Esta es la URL para success
     path('buscar-vehiculo/', views.buscar_vehiculo, name="Buscar_Vehiculo"),
     path('tests/', views.tests, name="tests"),
-]
+    path('vehiculos/', VehiculosClientesListView.as_view(), name='vehiculos-list'),
+    path('vehiculos/editar/<int:pk>/', VehiculosClientesUpdateView.as_view(), name='vehiculos-update'),
+    path('vehiculos/eliminar/<int:pk>/', VehiculosClientesDeleteView.as_view(), name='vehiculos-delete'),
+    ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

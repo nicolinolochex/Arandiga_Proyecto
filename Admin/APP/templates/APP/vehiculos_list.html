@@ -1,0 +1,75 @@
+{% extends 'APP/BASE.html' %}
+
+{% load static %}
+
+{% block main %}
+
+<div class="container mt-5 pt-5"> <!-- mt-5 y pt-5 para aún más espacio -->
+    <h2 class="text-center mb-4">Listado de Vehículos</h2>
+    <table class="table table-striped table-hover mt-3">
+        <thead>
+            <tr>
+                <th>ID</th> <!-- Nueva columna para el ID -->
+                <th>Unidad</th>
+                <th>Modelo</th>
+                <th>Kilometraje</th>
+                <th>Precio (USD)</th>
+                <th>Foto</th>
+                <th>Acciones</th> <!-- Columna para acciones como editar y eliminar -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehiculo in vehiculos %}
+            <tr>
+                <td>{{ vehiculo.id }}</td> <!-- Mostrando el ID -->
+                <td>{{ vehiculo.unidad }}</td>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.kilometraje }} km</td>
+                <td>${{ vehiculo.precio_usd }}</td>
+                <td>
+                    {% if vehiculo.foto %}
+                    <img src="{{ vehiculo.foto.url }}" alt="Foto del vehículo" width="100" />
+                    {% else %}
+                    No disponible
+                    {% endif %}
+                </td>
+                <td>
+                    <!-- Enlace para editar el vehículo -->
+                    <a href="{% url 'vehiculos-update' vehiculo.id %}" class="btn btn-sm btn-warning">
+                        Editar
+                    </a>
+                    <!-- Enlace para eliminar el vehículo -->
+                    <a href="{% url 'vehiculos-delete' vehiculo.id %}" class="btn btn-sm btn-danger">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7" class="text-center">No hay vehículos disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Paginación -->
+    <div class="pagination mt-4">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Primero</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock main %}

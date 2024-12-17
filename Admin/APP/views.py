@@ -6,7 +6,9 @@ from .forms import VehiculosClientesForm
 from .forms import TrabajaConNosotrosForm
 from .forms import BuscaVehiculoForm
 from .models import VehiculosClientes
-
+from django.views.generic import ListView, UpdateView, DeleteView
+from .models import VehiculosClientes
+from django.urls import reverse_lazy
 
 def inicio(request):
     return render(request, "APP/inicio.html")
@@ -82,3 +84,24 @@ def buscar_vehiculo(request):
         "mi_formulario": mi_formulario,
         "vehiculos": vehiculos  # Pasamos los vehículos filtrados o vacíos
     })
+
+
+
+class VehiculosClientesListView(ListView):
+    model = VehiculosClientes
+    template_name = "APP/vehiculos_list.html"  # Ruta de tu plantilla
+    context_object_name = "vehiculos"  # Nombre del contexto a usar en el template
+    paginate_by = 10  # Opcional: Para paginar, muestra 10 vehículos por página
+
+
+
+class VehiculosClientesUpdateView(UpdateView):
+    model = VehiculosClientes
+    template_name = "APP/vehiculos_edit.html"  # Ruta de la plantilla para editar
+    fields = ["unidad", "modelo", "kilometraje", "precio_usd", "foto"]  # Campos editables
+    success_url = reverse_lazy("vehiculos-list")  # URL de éxito tras actualizar
+
+class VehiculosClientesDeleteView(DeleteView):
+    model = VehiculosClientes
+    template_name = "APP/vehiculos_confirm_delete.html"  # Plantilla para confirmar la eliminación
+    success_url = reverse_lazy("vehiculos-list")  # Redirección tras eliminar
