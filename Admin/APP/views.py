@@ -5,6 +5,7 @@ from .forms import ContactForm, VehiculosClientesForm, TrabajaConNosotrosForm, B
 from .models import VehiculosClientes
 from django.views.generic import ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def inicio(request):
     return render(request, "APP/inicio.html")
@@ -83,7 +84,7 @@ def buscar_vehiculo(request):
 
 
 
-class VehiculosClientesListView(ListView):
+class VehiculosClientesListView(LoginRequiredMixin, ListView):
     model = VehiculosClientes
     template_name = "APP/vehiculos_list.html"  # Ruta de tu plantilla
     context_object_name = "vehiculos"  # Nombre del contexto a usar en el template
